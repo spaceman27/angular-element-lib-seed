@@ -1,0 +1,46 @@
+<div class="container-fluid login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <div class="row">
+      <div class="d-none d-md-block col-md-3 info-panel">
+        <h1><i class="far fa-paper-plane"></i></h1>
+        <h2>{{title}}</h2>
+        <hr />
+        <p>{{description}}</p>
+        <p>{{subDescription}}</p>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 login-panel">
+        <h2>
+          {{title}}
+        </h2>
+        <hr />
+        <p>{{subDescription}}</p>
+          <div class="login-form">
+            <div class="row login-field" *ngFor="let item of credentials; let i=index;">
+              <mat-form-field>
+                <input class="login-input" *ngIf="item.type.toLowerCase() !== 'dropdown'" [type]="item.type"
+                       matInput [placeholder]="item.name"
+                       [formControlName]="item.name">
+                <mat-select class="login-input" *ngIf="item.type.toLowerCase() === 'dropdown'"
+                            [placeholder]="item.caption"
+                            [formControlName]="item.name">
+                  <mat-option *ngFor="let sel of item.dropdownList" [value]="sel">
+                    {{sel}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <button [disabled]="!loginForm.valid" class="login-button" color="primary" mat-raised-button>Login</button>
+            </div>
+          </div>
+      </div>
+      <div class="col-1 lang-panel">
+        <mat-select class="language-selection" formControlName="language">
+          <mat-option *ngFor="let sel of languageOptions" [value]="sel">
+            {{sel}}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </form>
+</div>

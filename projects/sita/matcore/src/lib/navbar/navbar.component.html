@@ -1,0 +1,33 @@
+<div class="mynav">
+  <mat-nav-list >
+    <mat-list-item *ngFor="let link of links">
+      <div class="nav-item">
+                   
+        <a *ngIf="link.routerLink" matLine  routerLink="{{link.routerLink}}" routerLinkActive="{{link.routerLinkActive}}"> 
+          <div class="link-item">
+            <span>
+              <mat-icon *ngIf="link.icon.mat" >{{link.icon.mat}}</mat-icon>
+              <img *ngIf="link.icon.url" [src]="link.icon.url" />
+              <i *ngIf="link.icon.fontawesome" class="{{link.icon.fontawesome}}"></i> 
+            </span>
+            <span  class="nav-text"> {{link.navText}} </span>
+          </div>
+        </a>
+        
+        <a *ngIf="link.href" matLine  [href]='link.href'> 
+          <div class="link-item">
+            <span>
+              <mat-icon *ngIf="link.icon.mat" >{{link.icon.mat}}</mat-icon>
+              <img *ngIf="link.icon.url" [src]="link.icon.url" />
+              <i *ngIf="link.icon.fontawesome" class="{{link.icon.fontawesome}}"></i> 
+            </span>
+            <span class="nav-text"> {{link.navText}} </span>
+          </div>
+        </a>
+        
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>   
+    
+  </mat-nav-list>
+</div>
