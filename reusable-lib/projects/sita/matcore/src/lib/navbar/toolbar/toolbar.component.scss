@@ -1,0 +1,27 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .brand {
+    color: white;
+    text-decoration: none;
+    padding-right: 1rem;
+  }
+  
+  .menu-button {
+    margin-right: 1rem;
+  }
+  
+.mat-toolbar.mat-primary {
+    background: #2196f3;
+    color: white;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button {
+    color: inherit;
+    background: transparent;
+}

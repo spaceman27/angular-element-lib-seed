@@ -1,0 +1,12 @@
+{
+  "name": "@sita",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "refreshVSToken": "vsts-npm-auth -config .npmrc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

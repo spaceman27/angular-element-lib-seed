@@ -1,0 +1,21 @@
+{
+  "generator-ngx-rocket": {
+    "version": "5.1.0",
+    "props": {
+      "location": "path",
+      "appName": "SitaUI-angular6",
+      "target": [
+        "web"
+      ],
+      "pwa": true,
+      "ui": "material",
+      "layout": "simple",
+      "auth": false,
+      "lazy": false,
+      "angulartics": false,
+      "projectName": "sita-ui-angular-6",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<div className="container">  
+  <div class="sidebar-container">
+      <sitamat-navbar>        
+          <a routerLink="/dashboard">
+            <sitamat-navbar-item [active]="selectedNav===1" (click)="selectItem(1)">
+                <span icon-html>
+                  <mat-icon>apps</mat-icon>
+                </span>
+                <div nav-text>
+                  LOCAL ROUTING
+                </div>
+            </sitamat-navbar-item>            
+          </a>
+          <a routerLink="/setting">
+            <sitamat-navbar-item [active]="selectedNav===2" (click)="selectItem(2)">
+                <span icon-html>
+                  <mat-icon>settings</mat-icon>
+                </span>
+                <div nav-text>
+                  LOCAL ROUTING 2
+                </div>
+            </sitamat-navbar-item>            
+          </a>
+          <a href="google.com">
+            <sitamat-navbar-item> 
+                <span icon-html>
+                  <mat-icon>settings</mat-icon>
+                </span>
+                <div nav-text>
+                  OUTSIDE HREF
+                </div>
+            </sitamat-navbar-item>            
+          </a>
+      </sitamat-navbar>
+  </div>
+  <div class="login-pane">
+    <sita-login [loginBgImage]="backgroundImage"
+         [loginError]="loginError" title="SITA LOGIN" [fields]="fields" (submit)="login($event)">
+        <span login-lang>
+            <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+                <mat-icon>language</mat-icon>  
+            </button>
+            <mat-menu #languageMenu="matMenu">
+              <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+                {{language}}
+              </button>
+            </mat-menu>            
+        </span>
+    </sita-login>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.nav-item {
+    width: 100%;
+    text-align: center;
+    mat-icon {
+      font-size: 2.5em;
+      width: 40px;
+      height: 40px;
+    }
+    a {
+      font-weight: bold;
+    }
+  }
+
+  
+.link-item {
+    display: flex;
+    flex-direction: column;
+}
+.nav-text {
+    font-size: 14px;
+}
+
+.mat-list-item {
+    height: 80px !important;     
+    text-decoration: none;
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    
+}
+
+.active ::ng-deep .mat-list-item-content {
+    background: #fff!important;
+        margin-left: 8px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+}

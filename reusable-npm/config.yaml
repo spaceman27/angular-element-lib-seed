@@ -1,0 +1,70 @@
+#
+# This is the default config file. It allows all users to do anything,
+# so don't use it on production systems.
+#
+# Look here for more config file examples:
+# https://github.com/verdaccio/verdaccio/tree/master/conf
+#
+
+# path to a directory with all packages
+storage: ./storage
+# path to a directory with plugins to include
+plugins: ./plugins
+
+web:
+  # WebUI is enabled as default, if you want disable it, just uncomment this line
+  #enable: false
+  title: Verdaccio
+
+auth:
+  htpasswd:
+    file: ./htpasswd
+    # Maximum amount of users allowed to register, defaults to "+inf".
+    # You can set this to -1 to disable registration.
+    #max_users: 1000
+
+# a list of other known repositories we can talk to
+uplinks:
+  npmjs:    
+    url: https://registry.npmjs.org/
+  sita:
+    url: https://comnetsoftware.pkgs.visualstudio.com/_packaging/SITADayton_NPM/npm/registry/
+    auth:
+      type: bearer
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im9PdmN6NU1fN3AtSGpJS2xGWHo5M3VfVjBabyJ9.eyJuYW1laWQiOiI1ZDRlMWNlNi1iMDUyLTZmMDMtODRmYy0xNTIzNjUxOTYwYjgiLCJzY3AiOiJ2c28uZHJvcF93cml0ZSB2c28ucGFja2FnaW5nX3dyaXRlIiwiYXVpIjoiYjhkM2NiNTctOTA4MC00N2Y2LWFmYzEtZDBhZjBmYjg4MDQ1Iiwic2lkIjoiNTA1NzA5NWUtNGQ3ZC00Y2IwLWExOWQtMGYxNmVlNTJjMTFjIiwiaXNzIjoiYXBwLnZzc3BzLnZpc3VhbHN0dWRpby5jb20iLCJhdWQiOiJhcHAudnNzcHMudmlzdWFsc3R1ZGlvLmNvbXx2c286Nzc4ZjNkYjItNmQ5Zi00ZTNhLTkxM2ItNTJmNTVkZGNjZTBkIiwibmJmIjoxNTM5MDIyMTkxLCJleHAiOjE1NDY3OTg3OTF9.cwymhEwkMNY4WYW3uV2Y0mz4ULYZ_dNYQq37Rd63kZAWX0AqmSaE_MJNYHAk4G73lB781NlIqWtc2AeWkwHmP9Tu0Q5TXeXauYOkP5s67AZbSLFfwGLu2Vku7LFPjeu7SNw0o0Pyp06WOIC9tosUdsipk0CF4OMHIGy2HlcuI0V01s9FkTEMi9yf4OF8S80ua-IZLa8CR2UeKYERvlKjP8qf9Hc0Qe5DwcDYgr3PszsdR3CJpWiMVLJplli7vsgLNAgjucLBNX-gyw_3VhNn-4L_Jj2uHFJ-l388iNMDw43Smk-12ghGkIjtmTcg6snzR38aBfUDbvfE6nmnEm0cLQ
+packages:
+
+  '@sita/*':
+    access: $all
+    publish: $authenticated
+    proxy: sita
+  '@sita':
+    access: $all
+    publish: $authenticated
+    proxy: sita
+    
+  '**':
+    # allow all users (including non-authenticated users) to read and
+    # publish all packages
+    #
+    # you can specify usernames/groupnames (depending on your auth plugin)
+    # and three keywords: "$all", "$anonymous", "$authenticated"
+    access: $all
+
+    # allow all known users to publish packages
+    # (anyone can register by default, remember?)
+    publish: $authenticated
+
+    # if package is not available locally, proxy requests to 'npmjs' registry
+    proxy: npmjs
+
+# To use `npm audit` uncomment the following section
+middlewares:
+  audit:
+    enabled: true
+
+# log settings
+logs:
+  - {type: stdout, format: pretty, level: http}
+  #- {type: file, path: verdaccio.log, level: info}
+

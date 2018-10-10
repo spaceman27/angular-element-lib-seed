@@ -1,0 +1,26 @@
+<div [ngStyle]='{ "background-image": loginBgImage}' fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography">
+  <div>
+    <h1 fxLayoutAlign="center"> {{title}} </h1>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+      <div class="language-selector">
+        <ng-content select="[login-lang]"></ng-content>
+      </div>
+    </div>
+  </div>
+  <div class="login-container" fxLayout="row" fxLayoutAlign="center">    
+    <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
+      <label class="login-error" *ngIf="loginError"> {{loginError}} </label>
+      <form (ngSubmit)="onSubmit($event)" [formGroup]="loginForm" novalidate>
+          <ng-container *ngFor="let field of fields;" >
+              <ng-container *ngIf="switch && field.name !== 'username' && field.name !== 'password'" dynamicField [field]="field" [group]="loginForm">
+
+              </ng-container>
+              <ng-container *ngIf="!switch" dynamicField [field]="field" [group]="loginForm">
+
+              </ng-container>
+          </ng-container>
+      </form>
+    </mat-card>
+  </div>
+</div>
+

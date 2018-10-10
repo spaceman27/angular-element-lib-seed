@@ -1,0 +1,28 @@
+{
+  "name": "@sita/matcore",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^6.1.6",
+    "@angular/core": "^6.1.6",
+    "@angular/cdk": "^6.1.6",
+    "@angular/forms": "^6.1.6",
+    "@angular/http": "^6.1.6",
+    "@angular/material": "^6.4.7",
+    "@angular/flex-layout": "6.0.0-beta.18",
+    "material-design-icons-iconfont": "^3.0.3",
+    "rxjs": "^6.3.1"
+  },
+  "main": "bundles/sita-matcore.umd.js",
+  "module": "fesm5/sita-matcore.js",
+  "es2015": "fesm2015/sita-matcore.js",
+  "esm5": "esm5/sita-matcore.js",
+  "esm2015": "esm2015/sita-matcore.js",
+  "fesm5": "fesm5/sita-matcore.js",
+  "fesm2015": "fesm2015/sita-matcore.js",
+  "typings": "sita-matcore.d.ts",
+  "metadata": "sita-matcore.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

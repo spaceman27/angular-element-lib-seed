@@ -1,0 +1,13 @@
+<mat-list-item [ngClass]="{ 'active': active}">   
+  <div class="nav-item">
+      <div class="link-item">
+        <span>
+          <ng-content select="[icon-html]"></ng-content>  
+        </span>
+        <span class="nav-text">
+          <ng-content select="[nav-text]"></ng-content>
+        </span>
+      </div>
+  </div>
+  <mat-divider></mat-divider>
+</mat-list-item>

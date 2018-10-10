@@ -1,0 +1,9 @@
+<div [formGroup]="group" [ngStyle]="{'text-align': field.textAlign}">
+    <label class="ldap-container">
+        <span class="ldap-text"> {{field.label}} </span>
+    </label>
+    <label class="bs-switch">
+        <input type="checkbox" [formControlName]="field.name" />
+        <span class="slider round"></span>
+    </label>
+</div>

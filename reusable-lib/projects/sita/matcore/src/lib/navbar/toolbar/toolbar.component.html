@@ -1,0 +1,14 @@
+<mat-toolbar class="mat-elevation-z6 navbar" color="primary">
+  <div fxHide.gt-sm fxLayoutAlign="start center">
+    <button class="menu-button" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <ng-content select="[toolbar-title]"></ng-content> 
+  </div>
+  <span fxFlex>
+    <ng-content select="[toolbar-content]"></ng-content>
+  </span>
+  <span fxFlex>
+      <ng-content select="[toolbar-lang]"></ng-content>
+  </span>
+</mat-toolbar>
